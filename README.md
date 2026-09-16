@@ -1,6 +1,8 @@
 # Whetstone
 
-<img src="Resources/logo.png" alt="Whetstone logo" width="128" />
+<p align="center">
+  <img src="Resources/logo.png" alt="Whetstone logo" width="128" />
+</p>
 
 On-device JIT enabler for **iOS 12 / 13, all devices (A7–A13)**. No PC needed
 after install, no jailbreak installed.

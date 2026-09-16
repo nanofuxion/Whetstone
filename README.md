@@ -7,16 +7,13 @@
 On-device JIT enabler for **iOS 12 / 13, all devices (A7–A13)**. No PC needed
 after install, no jailbreak installed.
 
-Pick any installed app, tap one button, and Whetstone launches it if needed
-and patches *that app's* `proc` flags (`CS_DEBUGGED`, …) in the kernel so
-it may execute code it wrote itself. That is what emulators and
-runtimes (Dolphin, PPSSPP, LinIniOS's engine, …) need, and what stock iOS
-refuses them.
+Pick any installed app, tap one button, and it can run in debug mode —
+which is what emulators and runtimes (Dolphin, PPSSPP, LinIniOS's
+engine, …) need, and what stock iOS refuses them.
 
-The kernel itself is never modified: every write lands on a single
-process's `proc`/`task`, so nothing is device-wide and nothing persists —
-kill the target and its flags die with it, kill Whetstone and its kernel
-access dies with it.
+No full jailbreak: Whetstone uses a kernel exploit purely to grant
+itself the permission to flip apps into debug mode. Only Whetstone ever
+holds elevated permissions; nothing else is modified or installed.
 
 ## Why not just fork DirtyJIT?
 

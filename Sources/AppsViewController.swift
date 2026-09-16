@@ -14,6 +14,7 @@ final class AppsViewController: UIViewController, UITableViewDataSource, UITable
     private var apps: [(bid: String, name: String, pid: pid_t?)] = []
     private var selected: (bid: String, name: String)?
     private var busy = false
+    private var loading = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,21 +70,48 @@ final class AppsViewController: UIViewController, UITableViewDataSource, UITable
         NotificationCenter.default.addObserver(
             self, selector: #selector(targetNotified(_:)),
             name: NSNotification.Name("WhetstoneTarget"), object: nil)
+        // Pids go stale while we're backgrounded (targets exit, the device
+        // may even have rebooted under us): refresh on every return.
+        NotificationCenter.default.addObserver(
+            self, selector: #selector(foregrounded),
+            name: UIApplication.willEnterForegroundNotification, object: nil)
 
+        load()
+    }
+
+    @objc private func foregrounded() {
+        // An enable run interrupted by backgrounding leaves disabled
+        // buttons and a stale status: unstick it, then refresh.
+        if busy {
+            busy = false
+            setBusy(false)
+            statusLabel.text = "Interrupted — tap Enable to try again."
+        }
         load()
     }
 
     // MARK: - list
 
     private func load() {
-        var list = AppList.load().filter { $0.bundleID != Bundle.main.bundleIdentifier }
-        list.sort {
-            let r0 = AppList.pid(bundleID: $0.bundleID) != nil
-            let r1 = AppList.pid(bundleID: $1.bundleID) != nil
-            if r0 != r1 { return r0 && !r1 }
-            return $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending
+        // Filesystem walk + plist parsing + pid scans stay off the main
+        // thread: on a cold flash this is seconds of I/O that used to
+        // present as a frozen list.
+        loading = true
+        table.reloadData()
+        DispatchQueue.global(qos: .userInitiated).async {
+            var list = AppList.load().filter { $0.bundleID != Bundle.main.bundleIdentifier }
+            list.sort {
+                let r0 = AppList.pid(bundleID: $0.bundleID) != nil
+                let r1 = AppList.pid(bundleID: $1.bundleID) != nil
+                if r0 != r1 { return r0 && !r1 }
+                return $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending
+            }
+            let rows = list.map { ($0.bundleID, $0.name, AppList.pid(bundleID: $0.bundleID)) }
+            DispatchQueue.main.async {
+                self.loading = false
+                self.setApps(rows, note: nil)
+            }
         }
-        setApps(list.map { ($0.bundleID, $0.name, AppList.pid(bundleID: $0.bundleID)) }, note: nil)
     }
 
     private func setApps(_ apps: [(bid: String, name: String, pid: pid_t?)], note: String?) {
@@ -118,14 +146,16 @@ final class AppsViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return apps.isEmpty ? 1 : apps.count
+        return (apps.isEmpty) ? 1 : apps.count
     }
 
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         guard !apps.isEmpty else {
-            cell.textLabel?.text = "Nothing found — open the target app, then come back."
+            cell.textLabel?.text = loading
+                ? "Loading apps…"
+                : "Nothing found — open the target app, then come back."
             cell.accessoryType = .none
             return cell
         }

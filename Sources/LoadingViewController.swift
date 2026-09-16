@@ -138,20 +138,24 @@ final class LoadingViewController: UIViewController {
             // The only job: Amethyst-style self-jailbreak (exploit + root +
             // sandbox escape + platformize), so this process can patch
             // targets directly. A panic here returns via relaunch, not via
-            // fail(). Rotate the flavor per attempt so a path that panics
-            // deterministically is not retried blindly: auto, hemlock-only,
-            // trigon-only, then repeat.
-            let which: Int32
-            let whichName: String
-            switch (attempts - 1) % 3 {
-            case 1: which = WHETSTONE_EXPLOIT_HEMLOCK; whichName = "hemlock"
-            case 2: which = WHETSTONE_EXPLOIT_TRIGON; whichName = "trigon"
-            default: which = WHETSTONE_EXPLOIT_AUTO; whichName = "auto"
+            // fail(). Both exploits are tried automatically, hemlock then
+            // trigon (order alternates per relaunch so a path that fails
+            // deterministically is not always first).
+            let hemlockFirst = attempts % 2 == 1
+            let order: [(Int32, String)] = hemlockFirst
+                ? [(WHETSTONE_EXPLOIT_HEMLOCK, "hemlock"), (WHETSTONE_EXPLOIT_TRIGON, "trigon")]
+                : [(WHETSTONE_EXPLOIT_TRIGON, "trigon"), (WHETSTONE_EXPLOIT_HEMLOCK, "hemlock")]
+            var rc: Int32 = WHETSTONE_ERR_EXPLOIT
+            var tried: [String] = []
+            for (which, name) in order {
+                self.setStage("Exploiting (\(name))…")
+                tried.append(name)
+                rc = whetstone_run_exploit(which)
+                if rc == 0 { break }
             }
-            self.setStage("Exploiting (\(whichName), attempt \(attempts))…")
-            let rc = whetstone_run_exploit(which)
             guard rc == 0 else {
-                self.fail(String(cString: whetstone_error_string(rc)))
+                self.fail("Both exploits failed (\(tried.joined(separator: ", ")): " +
+                    "\(String(cString: whetstone_error_string(rc))). Reboot and try again.")
                 return
             }
 

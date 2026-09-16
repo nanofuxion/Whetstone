@@ -51,11 +51,8 @@ Three screens, no typing:
    verbatim self-jailbreak: uid0, sandbox escape, platformize) with a
    live stage line. A clean failure shows one line plus Back; a restart
    returns via relaunch routing.
-3. **Pick an app to debug** — the list; tap to enable. The target does
-   not need to be running: Whetstone launches it through frontboard,
-   catches its pid (dock plist first, live process scan as fallback),
-   patches it, and foregrounds it. A stale pid reads as failure, never
-   as a patch attempt.
+3. **Pick an app to debug** — the list; tap to enable. Whetstone patches
+   it and foregrounds it.
 
 After a reboot or if Whetstone is killed, the exploit dies with the
 process — relaunch and tap to start again, same as every

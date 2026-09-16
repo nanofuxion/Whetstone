@@ -7,10 +7,16 @@
 On-device JIT enabler for **iOS 12 / 13, all devices (A7–A13)**. No PC needed
 after install, no jailbreak installed.
 
-Pick a running app, tap one button, and Whetstone patches that app in the
-kernel so it may execute code it wrote itself. That is what emulators and
+Pick any installed app, tap one button, and Whetstone launches it if needed
+and patches *that app's* `proc` flags (`CS_DEBUGGED`, …) in the kernel so
+it may execute code it wrote itself. That is what emulators and
 runtimes (Dolphin, PPSSPP, LinIniOS's engine, …) need, and what stock iOS
 refuses them.
+
+The kernel itself is never modified: every write lands on a single
+process's `proc`/`task`, so nothing is device-wide and nothing persists —
+kill the target and its flags die with it, kill Whetstone and its kernel
+access dies with it.
 
 ## Why not just fork DirtyJIT?
 
@@ -45,9 +51,11 @@ Three screens, no typing:
    verbatim self-jailbreak: uid0, sandbox escape, platformize) with a
    live stage line. A clean failure shows one line plus Back; a restart
    returns via relaunch routing.
-3. **Pick an app to debug** — the list; tap to enable. The target must be
-   running in the background (same as DirtyJIT); a stale pid reads as
-   "not running", never as a cryptic failure.
+3. **Pick an app to debug** — the list; tap to enable. The target does
+   not need to be running: Whetstone launches it through frontboard,
+   catches its pid (dock plist first, live process scan as fallback),
+   patches it, and foregrounds it. A stale pid reads as failure, never
+   as a patch attempt.
 
 After a reboot or if Whetstone is killed, the exploit dies with the
 process — relaunch and tap to start again, same as every

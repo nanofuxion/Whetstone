@@ -45,6 +45,20 @@ star(700, 300, 70, spark_hot)
 star(300, 720, 60, spark)
 star(850, 700, 40, spark_hot)
 
+# Ring master: circular-crop the artwork with transparent corners and bake
+# in a thin ring. (iOS still applies its own squircle on top; the dark art
+# on transparent corners flattens to near-black, matching the background.)
+img = img.convert("RGBA")
+mask = Image.new("L", (S, S), 0)
+ImageDraw.Draw(mask).ellipse([0, 0, S - 1, S - 1], fill=255)
+ringed = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+ringed.paste(img, (0, 0), mask)
+w = S // 64
+ImageDraw.Draw(ringed).ellipse(
+    [w // 2, w // 2, S - 1 - w // 2, S - 1 - w // 2],
+    outline=(255, 255, 255, 64), width=w)
+img = ringed
+
 for size in (20, 29, 40, 58, 60, 76, 80, 87, 120, 152, 167, 180, 1024):
     img.resize((size, size), Image.LANCZOS).save(f"Icon-{size}.png")
 print("wrote icons")

@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 53;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE0000000000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000001 /* AppDelegate.swift */; };
+		EE0000000000000000000002 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000000000000000000002D /* StartViewController.swift */; };
+		EE000000000000000000001C /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000000000000000000002E /* LoadingViewController.swift */; };
+		EE000000000000000000001D /* AppsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF000000000000000000002F /* AppsViewController.swift */; };
+		EE0000000000000000000003 /* AppList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000003 /* AppList.swift */; };
+		EE0000000000000000000004 /* Whetstone.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000004 /* Whetstone.swift */; };
+		EE0000000000000000000005 /* whetstone_jit.c in Sources */ = {isa = PBXBuildFile; fileRef = FF000000000000000000001A /* whetstone_jit.c */; };
+		EE0000000000000000000006 /* hemlock.c in Sources */ = {isa = PBXBuildFile; fileRef = FF000000000000000000000A /* hemlock.c */; };
+		EE0000000000000000000007 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = FF000000000000000000000C /* util.c */; };
+		EE0000000000000000000008 /* trigon.c in Sources */ = {isa = PBXBuildFile; fileRef = FF000000000000000000000E /* trigon.c */; };
+		EE0000000000000000000009 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000010 /* util.c */; };
+		EE000000000000000000000A /* aop.c in Sources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000012 /* aop.c */; };
+		EE000000000000000000000B /* memory.c in Sources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000015 /* memory.c */; };
+		EE000000000000000000000C /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000017 /* utils.c */; };
+		EE000000000000000000000E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF000000000000000000001C /* LaunchScreen.storyboard */; };
+		EE000000000000000000000F /* Icon-20.png in Resources */ = {isa = PBXBuildFile; fileRef = FF000000000000000000001D /* Icon-20.png */; };
+		EE0000000000000000000010 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = FF000000000000000000001E /* Icon-29.png */; };
+		EE0000000000000000000011 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = FF000000000000000000001F /* Icon-40.png */; };
+		EE0000000000000000000012 /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000020 /* Icon-58.png */; };
+		EE0000000000000000000013 /* Icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000021 /* Icon-60.png */; };
+		EE0000000000000000000014 /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000022 /* Icon-76.png */; };
+		EE0000000000000000000015 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000023 /* Icon-80.png */; };
+		EE0000000000000000000016 /* Icon-87.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000024 /* Icon-87.png */; };
+		EE0000000000000000000017 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000025 /* Icon-120.png */; };
+		EE0000000000000000000018 /* Icon-152.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000026 /* Icon-152.png */; };
+		EE0000000000000000000019 /* Icon-167.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000027 /* Icon-167.png */; };
+		EE000000000000000000001A /* Icon-180.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000028 /* Icon-180.png */; };
+		EE000000000000000000001B /* Icon-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0000000000000000000029 /* Icon-1024.png */; };
+		EE001A000000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF001A000000000000000031 /* AppDelegate.swift */; };
+		EE001A000000000000000002 /* ProbeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF001A000000000000000032 /* ProbeViewController.swift */; };
+		EE001A000000000000000003 /* jitprobe.c in Sources */ = {isa = PBXBuildFile; fileRef = FF001A000000000000000034 /* jitprobe.c */; };
+		EE001A000000000000000004 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF001A000000000000000038 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FF0000000000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FF000000000000000000002D /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		FF000000000000000000002E /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		FF000000000000000000002F /* AppsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewController.swift; sourceTree = "<group>"; };
+		FF0000000000000000000003 /* AppList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppList.swift; sourceTree = "<group>"; };
+		FF0000000000000000000004 /* Whetstone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Whetstone.swift; sourceTree = "<group>"; };
+		FF0000000000000000000005 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		FF0000000000000000000009 /* hemlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hemlock.h; sourceTree = "<group>"; };
+		FF000000000000000000000A /* hemlock.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = hemlock.c; sourceTree = "<group>"; };
+		FF000000000000000000000B /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		FF000000000000000000000C /* util.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
+		FF000000000000000000000D /* trigon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = trigon.h; sourceTree = "<group>"; };
+		FF000000000000000000000E /* trigon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = trigon.c; sourceTree = "<group>"; };
+		FF000000000000000000000F /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		FF0000000000000000000010 /* util.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
+		FF0000000000000000000011 /* aop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = aop.h; sourceTree = "<group>"; };
+		FF0000000000000000000012 /* aop.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = aop.c; sourceTree = "<group>"; };
+		FF0000000000000000000013 /* jailbreak.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = jailbreak.h; sourceTree = "<group>"; };
+		FF0000000000000000000014 /* memory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memory.h; sourceTree = "<group>"; };
+		FF0000000000000000000015 /* memory.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = memory.c; sourceTree = "<group>"; };
+		FF0000000000000000000016 /* utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		FF0000000000000000000017 /* utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
+		FF0000000000000000000018 /* handoff.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = handoff.h; sourceTree = "<group>"; };
+		FF0000000000000000000019 /* whetstone_jit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = whetstone_jit.h; sourceTree = "<group>"; };
+		FF000000000000000000001A /* whetstone_jit.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; path = whetstone_jit.c; sourceTree = "<group>"; };
+		FF000000000000000000001B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF000000000000000000001C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FF000000000000000000001D /* Icon-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-20.png; sourceTree = "<group>"; };
+		FF000000000000000000001E /* Icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-29.png; sourceTree = "<group>"; };
+		FF000000000000000000001F /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-40.png; sourceTree = "<group>"; };
+		FF0000000000000000000020 /* Icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-58.png; sourceTree = "<group>"; };
+		FF0000000000000000000021 /* Icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-60.png; sourceTree = "<group>"; };
+		FF0000000000000000000022 /* Icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-76.png; sourceTree = "<group>"; };
+		FF0000000000000000000023 /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-80.png; sourceTree = "<group>"; };
+		FF0000000000000000000024 /* Icon-87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-87.png; sourceTree = "<group>"; };
+		FF0000000000000000000025 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-120.png; sourceTree = "<group>"; };
+		FF0000000000000000000026 /* Icon-152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-152.png; sourceTree = "<group>"; };
+		FF0000000000000000000027 /* Icon-167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-167.png; sourceTree = "<group>"; };
+		FF0000000000000000000028 /* Icon-180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-180.png; sourceTree = "<group>"; };
+		FF0000000000000000000029 /* Icon-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon-1024.png; sourceTree = "<group>"; };
+		FF000000000000000000002A /* Whetstone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Whetstone.entitlements; sourceTree = "<group>"; };
+		FF000000000000000000002B /* Whetstone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whetstone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF001A000000000000000030 /* JITProbe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JITProbe.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF001A000000000000000031 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/AppDelegate.swift"; sourceTree = "<group>"; };
+		FF001A000000000000000032 /* ProbeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sources/ProbeViewController.swift"; sourceTree = "<group>"; };
+		FF001A000000000000000033 /* jitprobe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sources/jitprobe.h"; sourceTree = "<group>"; };
+		FF001A000000000000000034 /* jitprobe.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "Sources/jitprobe.c"; sourceTree = "<group>"; };
+		FF001A000000000000000035 /* Bridging.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sources/Bridging.h"; sourceTree = "<group>"; };
+		FF001A000000000000000036 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Resources/Info.plist"; sourceTree = "<group>"; };
+		FF001A000000000000000037 /* JITProbe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Resources/JITProbe.entitlements"; sourceTree = "<group>"; };
+		FF001A000000000000000038 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Resources/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC001A000000000000000003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC0000000000000000000002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA0000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000004 /* Sources */,
+				AA0000000000000000000005 /* Exploit */,
+				AA0000000000000000000009 /* Resources */,
+				AA001A00000000000000000A /* JITProbe */,
+				AA0000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF000000000000000000002B /* Whetstone.app */,
+				FF001A000000000000000030 /* JITProbe.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA001A00000000000000000A /* JITProbe */ = {
+			isa = PBXGroup;
+			children = (
+				FF001A000000000000000031 /* AppDelegate.swift */,
+				FF001A000000000000000032 /* ProbeViewController.swift */,
+				FF001A000000000000000033 /* jitprobe.h */,
+				FF001A000000000000000034 /* jitprobe.c */,
+				FF001A000000000000000035 /* Bridging.h */,
+				FF001A000000000000000036 /* Info.plist */,
+				FF001A000000000000000037 /* JITProbe.entitlements */,
+				FF001A000000000000000038 /* LaunchScreen.storyboard */,
+			);
+			path = JITProbe;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000004 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FF0000000000000000000001 /* AppDelegate.swift */,
+				FF000000000000000000002D /* StartViewController.swift */,
+				FF000000000000000000002E /* LoadingViewController.swift */,
+				FF000000000000000000002F /* AppsViewController.swift */,
+				FF0000000000000000000003 /* AppList.swift */,
+				FF0000000000000000000004 /* Whetstone.swift */,
+				FF0000000000000000000005 /* Bridging.h */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000005 /* Exploit */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000000000000000000006 /* hemlock */,
+				AA0000000000000000000007 /* trigon */,
+				AA0000000000000000000008 /* jailbreak */,
+				FF0000000000000000000019 /* whetstone_jit.h */,
+				FF000000000000000000001A /* whetstone_jit.c */,
+			);
+			path = Exploit;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000006 /* hemlock */ = {
+			isa = PBXGroup;
+			children = (
+				FF0000000000000000000009 /* hemlock.h */,
+				FF000000000000000000000A /* hemlock.c */,
+				FF000000000000000000000B /* util.h */,
+				FF000000000000000000000C /* util.c */,
+			);
+			path = hemlock;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000007 /* trigon */ = {
+			isa = PBXGroup;
+			children = (
+				FF000000000000000000000D /* trigon.h */,
+				FF000000000000000000000E /* trigon.c */,
+				FF000000000000000000000F /* util.h */,
+				FF0000000000000000000010 /* util.c */,
+				FF0000000000000000000011 /* aop.h */,
+				FF0000000000000000000012 /* aop.c */,
+			);
+			path = trigon;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000008 /* jailbreak */ = {
+			isa = PBXGroup;
+			children = (
+				FF0000000000000000000013 /* jailbreak.h */,
+				FF0000000000000000000014 /* memory.h */,
+				FF0000000000000000000015 /* memory.c */,
+				FF0000000000000000000016 /* utils.h */,
+				FF0000000000000000000017 /* utils.c */,
+				FF0000000000000000000018 /* handoff.h */,
+			);
+			path = jailbreak;
+			sourceTree = "<group>";
+		};
+		AA0000000000000000000009 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF000000000000000000001B /* Info.plist */,
+				FF000000000000000000002A /* Whetstone.entitlements */,
+				FF000000000000000000001C /* LaunchScreen.storyboard */,
+				AA000000000000000000000A /* icons */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AA000000000000000000000A /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				FF000000000000000000001D /* Icon-20.png */,
+				FF000000000000000000001E /* Icon-29.png */,
+				FF000000000000000000001F /* Icon-40.png */,
+				FF0000000000000000000020 /* Icon-58.png */,
+				FF0000000000000000000021 /* Icon-60.png */,
+				FF0000000000000000000022 /* Icon-76.png */,
+				FF0000000000000000000023 /* Icon-80.png */,
+				FF0000000000000000000024 /* Icon-87.png */,
+				FF0000000000000000000025 /* Icon-120.png */,
+				FF0000000000000000000026 /* Icon-152.png */,
+				FF0000000000000000000027 /* Icon-167.png */,
+				FF0000000000000000000028 /* Icon-180.png */,
+				FF0000000000000000000029 /* Icon-1024.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB001A00000000000000000B /* JITProbe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD001A000000000000000005 /* Build configuration list for PBXNativeTarget "JITProbe" */;
+			buildPhases = (
+				CC001A000000000000000002 /* Sources */,
+				CC001A000000000000000003 /* Frameworks */,
+				CC001A000000000000000004 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JITProbe;
+			productName = JITProbe;
+			productReference = FF001A000000000000000030 /* JITProbe.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BB000000000000000000000B /* Whetstone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0000000000000000000011 /* Build configuration list for PBXNativeTarget "Whetstone" */;
+			buildPhases = (
+				CC0000000000000000000001 /* Sources */,
+				CC0000000000000000000002 /* Frameworks */,
+				CC0000000000000000000004 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Whetstone;
+			productName = Whetstone;
+			productReference = FF000000000000000000002B /* Whetstone.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA0000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 2600;
+			};
+			buildConfigurationList = DD0000000000000000000010 /* Build configuration list for PBXProject "Whetstone" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA0000000000000000000002;
+			productRefGroup = AA0000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BB000000000000000000000B /* Whetstone */,
+				BB001A00000000000000000B /* JITProbe */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC001A000000000000000004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE001A000000000000000004 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC0000000000000000000004 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE000000000000000000000E /* LaunchScreen.storyboard in Resources */,
+				EE000000000000000000000F /* Icon-20.png in Resources */,
+				EE0000000000000000000010 /* Icon-29.png in Resources */,
+				EE0000000000000000000011 /* Icon-40.png in Resources */,
+				EE0000000000000000000012 /* Icon-58.png in Resources */,
+				EE0000000000000000000013 /* Icon-60.png in Resources */,
+				EE0000000000000000000014 /* Icon-76.png in Resources */,
+				EE0000000000000000000015 /* Icon-80.png in Resources */,
+				EE0000000000000000000016 /* Icon-87.png in Resources */,
+				EE0000000000000000000017 /* Icon-120.png in Resources */,
+				EE0000000000000000000018 /* Icon-152.png in Resources */,
+				EE0000000000000000000019 /* Icon-167.png in Resources */,
+				EE000000000000000000001A /* Icon-180.png in Resources */,
+				EE000000000000000000001B /* Icon-1024.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC001A000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE001A000000000000000001 /* AppDelegate.swift in Sources */,
+				EE001A000000000000000002 /* ProbeViewController.swift in Sources */,
+				EE001A000000000000000003 /* jitprobe.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC0000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE0000000000000000000001 /* AppDelegate.swift in Sources */,
+				EE0000000000000000000002 /* StartViewController.swift in Sources */,
+				EE000000000000000000001C /* LoadingViewController.swift in Sources */,
+				EE000000000000000000001D /* AppsViewController.swift in Sources */,
+				EE0000000000000000000003 /* AppList.swift in Sources */,
+				EE0000000000000000000004 /* Whetstone.swift in Sources */,
+				EE0000000000000000000005 /* whetstone_jit.c in Sources */,
+				EE0000000000000000000006 /* hemlock.c in Sources */,
+				EE0000000000000000000007 /* util.c in Sources */,
+				EE0000000000000000000008 /* trigon.c in Sources */,
+				EE0000000000000000000009 /* util.c in Sources */,
+				EE000000000000000000000A /* aop.c in Sources */,
+				EE000000000000000000000B /* memory.c in Sources */,
+				EE000000000000000000000C /* utils.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DD0000000000000000000012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Debug;
+		};
+		DD0000000000000000000013 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Release;
+		};
+		DD0000000000000000000014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Resources/Whetstone.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VD857MV9ME;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Exploit",
+					"$(SRCROOT)/Exploit/hemlock",
+					"$(SRCROOT)/Exploit/trigon",
+					"$(SRCROOT)/Exploit/jailbreak",
+					"$(SRCROOT)/Sources",
+				);
+				INFOPLIST_FILE = Resources/Info.plist;
+				OTHER_CFLAGS = "-Wno-everything";
+				OTHER_LDFLAGS = (
+					"-framework",
+					IOKit,
+					"-framework",
+					IOSurface,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.whetstone.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Sources/Bridging.h;
+				SWIFT_OPTIMIZATION_LEVEL = -Onone;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD0000000000000000000015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Resources/Whetstone.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VD857MV9ME;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Exploit",
+					"$(SRCROOT)/Exploit/hemlock",
+					"$(SRCROOT)/Exploit/trigon",
+					"$(SRCROOT)/Exploit/jailbreak",
+					"$(SRCROOT)/Sources",
+				);
+				INFOPLIST_FILE = Resources/Info.plist;
+				OTHER_CFLAGS = "-Wno-everything";
+				OTHER_LDFLAGS = (
+					"-framework",
+					IOKit,
+					"-framework",
+					IOSurface,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = dev.whetstone.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = Sources/Bridging.h;
+				SWIFT_OPTIMIZATION_LEVEL = -O;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DD001A000000000000000006 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JITProbe/Resources/JITProbe.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VD857MV9ME;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/JITProbe/Sources";
+				INFOPLIST_FILE = JITProbe/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				OTHER_CFLAGS = "-Wno-everything";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.whetstone.jitprobe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = JITProbe/Sources/Bridging.h;
+				SWIFT_OPTIMIZATION_LEVEL = -Onone;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD001A000000000000000007 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JITProbe/Resources/JITProbe.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VD857MV9ME;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/JITProbe/Sources";
+				INFOPLIST_FILE = JITProbe/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				OTHER_CFLAGS = "-Wno-everything";
+				PRODUCT_BUNDLE_IDENTIFIER = dev.whetstone.jitprobe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = JITProbe/Sources/Bridging.h;
+				SWIFT_OPTIMIZATION_LEVEL = -O;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD0000000000000000000010 /* Build configuration list for PBXProject "Whetstone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0000000000000000000012 /* Debug */,
+				DD0000000000000000000013 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD0000000000000000000011 /* Build configuration list for PBXNativeTarget "Whetstone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0000000000000000000014 /* Debug */,
+				DD0000000000000000000015 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD001A000000000000000005 /* Build configuration list for PBXNativeTarget "JITProbe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD001A000000000000000006 /* Debug */,
+				DD001A000000000000000007 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AA0000000000000000000001 /* Project object */;
+}

@@ -1,0 +1,16 @@
+# Build products (rebuilt locally; never committed)
+build/
+build-device/
+build-xcode/
+build-jitprobe/
+JITProbe/build-device/
+*.ipa
+*.app.dSYM
+
+# Xcode per-user state
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+
+# macOS
+.DS_Store

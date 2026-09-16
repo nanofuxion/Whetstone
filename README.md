@@ -16,22 +16,9 @@ jailbreaking purely to grant itself the permission to flip apps into
 debug mode. Only Whetstone ever holds elevated permissions; nothing else
 is modified or installed.
 
-## Why not just fork DirtyJIT?
-
-DirtyJIT and Whetstone solve the same problem on different iOS generations
-with different vulnerabilities, so a direct fork cannot work:
-
-| | DirtyJIT (haxi0) | Whetstone |
-|---|---|---|
-| Works on | iOS 15.5–16.1.2 | iOS 12.x–13.x |
-| Core bug | MacDirtyCow CVE-2022-46689 (file overwrite; does not exist on iOS 12) | Amethyst kernel exploits (hemlock cold-start, trigon fast path) |
-| How JIT is granted | Replace `iPhoneDebug.pem` + mount a Developer Disk Image + attach debugserver | Patch the target's `proc` flags (`CS_DEBUGGED`, …) directly in the kernel |
-| Needs a PC? | **Yes, every reboot** (mount the DDI with `ideviceimagemounter`) | **No** — only the one-time sideload |
-| UI | SwiftUI (needs iOS 13+) | UIKit (runs on iOS 12) |
-
-Whetstone takes its app-picker UX *inspiration* from DirtyJIT but shares no
-code with it (DirtyJIT is GPL-3.0). The exploit code is vendored from
-Amethyst (MIT) — see `THIRD_PARTY_NOTICES.md`.
+Inspired by [DirtyJIT](https://github.com/haxi0/DirtyJIT) (no code shared —
+see `THIRD_PARTY_NOTICES.md`). The exploit code is vendored from Amethyst
+(MIT).
 
 ## One honest caveat
 

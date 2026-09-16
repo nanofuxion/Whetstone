@@ -11,9 +11,10 @@ Pick any installed app, tap one button, and it can run in debug mode —
 which is what emulators and runtimes (Dolphin, PPSSPP, LinIniOS's
 engine, …) need, and what stock iOS refuses them.
 
-No full jailbreak: Whetstone uses a kernel exploit purely to grant
-itself the permission to flip apps into debug mode. Only Whetstone ever
-holds elevated permissions; nothing else is modified or installed.
+No full jailbreak: Whetstone uses an exploit normally used for
+jailbreaking purely to grant itself the permission to flip apps into
+debug mode. Only Whetstone ever holds elevated permissions; nothing else
+is modified or installed.
 
 ## Why not just fork DirtyJIT?
 

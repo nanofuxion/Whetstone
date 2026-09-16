@@ -1,17 +1,24 @@
 # Whetstone
 
+<p align="center">
+  <img src="Resources/logo-rounded.png" alt="Whetstone logo" width="128" />
+</p>
+
 On-device JIT enabler for **iOS 12 / 13, all devices (A7–A13)**. No PC needed
 after install, no jailbreak installed.
 
-Pick a running app, tap one button, and Whetstone patches that app in the
-kernel so it may execute code it wrote itself. That is what emulators and
-runtimes (Dolphin, PPSSPP, LinIniOS's engine, …) need, and what stock iOS
-refuses them.
+Pick any installed app, tap one button, and it can run in debug mode —
+which is what emulators and runtimes (Dolphin, PPSSPP, LinIniOS's
+engine, …) need, and what stock iOS refuses them.
 
-## Why not just fork DirtyJIT?
+No full jailbreak: Whetstone uses an exploit normally used for
+jailbreaking purely to grant itself the permission to flip apps into
+debug mode. Only Whetstone ever holds elevated permissions; nothing else
+is modified or installed.
 
-DirtyJIT and Whetstone solve the same problem on different iOS generations
-with different vulnerabilities, so a direct fork cannot work:
+Inspired by [DirtyJIT](https://github.com/haxi0/DirtyJIT) (no code shared —
+see `THIRD_PARTY_NOTICES.md`). The exploit code is vendored from Amethyst
+(MIT).
 
 | | DirtyJIT (haxi0) | Whetstone |
 |---|---|---|
@@ -20,10 +27,6 @@ with different vulnerabilities, so a direct fork cannot work:
 | How JIT is granted | Replace `iPhoneDebug.pem` + mount a Developer Disk Image + attach debugserver | Patch the target's `proc` flags (`CS_DEBUGGED`, …) directly in the kernel |
 | Needs a PC? | **Yes, every reboot** (mount the DDI with `ideviceimagemounter`) | **No** — only the one-time sideload |
 | UI | SwiftUI (needs iOS 13+) | UIKit (runs on iOS 12) |
-
-Whetstone takes its app-picker UX *inspiration* from DirtyJIT but shares no
-code with it (DirtyJIT is GPL-3.0). The exploit code is vendored from
-Amethyst (MIT) — see `THIRD_PARTY_NOTICES.md`.
 
 ## One honest caveat
 
@@ -41,9 +44,8 @@ Three screens, no typing:
    verbatim self-jailbreak: uid0, sandbox escape, platformize) with a
    live stage line. A clean failure shows one line plus Back; a restart
    returns via relaunch routing.
-3. **Pick an app to debug** — the list; tap to enable. The target must be
-   running in the background (same as DirtyJIT); a stale pid reads as
-   "not running", never as a cryptic failure.
+3. **Pick an app to debug** — the list; tap to enable. Whetstone patches
+   it and foregrounds it.
 
 After a reboot or if Whetstone is killed, the exploit dies with the
 process — relaunch and tap to start again, same as every
@@ -56,9 +58,11 @@ can deep-link here with their bundle ID prefilled.
 
 Expected on some devices (observed on A7 / iOS 12.5.8, where official
 Amethyst restarts the same way): the puaf spray can destabilize the kernel
-instead of failing cleanly. Whetstone notices the interrupted attempt on
-relaunch, counts retries, and tells you when to reboot-and-retry versus just
-re-tap. Two things keep a bad run from doing damage:
+instead of failing cleanly. Every tap tries both exploits automatically
+(hemlock and trigon, alternating which goes first), and a poisoned trigon
+cache from an interrupted run is discarded on relaunch — so a respring
+just means reopening and tapping to start again. Two things keep a bad run
+from doing damage:
 
 - Every kernel address is validated (proc↔task round-trip, mobile uid check)
   *before* anything is written. A mismatch aborts with "nothing was written"

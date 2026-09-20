@@ -173,6 +173,13 @@ final class ProbeViewController: UIViewController {
             execResults[i] = Int(p.1())
             clearMarker()
         }
+        // Re-read state too: patching flips CS_DEBUGGED and may move the
+        // VA ceiling, so the exec run reports everything fresh.
+        let bid = Bundle.main.bundleIdentifier ?? "?"
+        let dbg = debugged
+        let maxVA = Double(probe_max_va()) / 1_073_741_824.0
+        infoLabel.text = "\(bid)\npid \(getpid()) · CS_DEBUGGED: \(dbg ? "yes" : "no")" +
+            String(format: "\nmax VA reservation: %.1f GB", maxVA)
         updateRows(mapResults: nil)
         updateVerdict()
     }

@@ -144,8 +144,10 @@ final class ProbeViewController: UIViewController {
         let rwx = probe_rwx_noexec()
         let rwrx = probe_rwrx_noexec()
         let mj = probe_mapjit_noexec()
+        let maxVA = Double(probe_max_va()) / 1_073_741_824.0
 
-        infoLabel.text = "\(bid)\npid \(pid) · CS_DEBUGGED: \(dbg ? "yes" : "no")"
+        infoLabel.text = "\(bid)\npid \(pid) · CS_DEBUGGED: \(dbg ? "yes" : "no")" +
+            String(format: "\nmax VA reservation: %.1f GB", maxVA)
         updateRows(mapResults: [rwx, rwrx, mj])
 
         if let k = killed {

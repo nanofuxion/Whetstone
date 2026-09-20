@@ -38,4 +38,8 @@ const char *probe_describe(int rc);
 // Describer for the *_noexec return values. Never NULL.
 const char *probe_describe_map(int rc);
 
+// Largest single reservable anonymous region, in bytes (PROT_NONE, safe
+// to auto-run). Stock ~9-13 GB, jumbo-blessed ~64 GB.
+unsigned long long probe_max_va(void);
+
 #endif /* jitprobe_h */

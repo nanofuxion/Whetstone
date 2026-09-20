@@ -147,6 +147,29 @@ const char *probe_describe_map(int rc) {
     return "refused";
 }
 
+// Largest single anonymous PROT_NONE reservation the kernel grants, in
+// bytes. Stock processes are capped by RAM size (~9-13 GB); a process with
+// the dynamic-codesigning blessing ("jumbo" space) gets ~64 GB. Emulator
+// fastmem needs the latter. Reservation only — no pages touched.
+unsigned long long probe_max_va(void) {
+    unsigned long long lo = 0, hi = (unsigned long long)64 * 1024 * 1024 * 1024;
+    while (hi - lo > (unsigned long long)256 * 1024 * 1024) {
+        uint64_t mid = lo + (hi - lo) / 2;
+        mid &= ~((uint64_t)0x4000 - 1);
+        if (mid == 0) break;
+        void *p = mmap(NULL, (size_t)mid, PROT_NONE,
+                       MAP_PRIVATE | MAP_ANON, -1, 0);
+        if (p == MAP_FAILED) {
+            hi = mid;
+        } else {
+            munmap(p, (size_t)mid);
+            lo = mid;
+        }
+        if (mid == 0) break;
+    }
+    return lo;
+}
+
 const char *probe_describe(int rc) {
     static char buf[96];
     if (rc == 0) return "PASS (code ran)";
